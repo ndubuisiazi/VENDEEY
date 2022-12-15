@@ -1,0 +1,34 @@
+[
+  {
+    "username": "Test1",
+    "email": "fakeEmail1@notreal.com",
+    "address":"123somewhere"
+  },
+  {
+    "username": "Test2",
+    "email": "fakeEmail2@notreal.com",
+    "address":"456somewhere"
+  },
+  {
+    "username": "Test3",
+    "email": "fakeEmail3@notreal.com",
+    "address":"678somewhere"
+  },
+  {
+    "username": "Test4",
+    "email": "fakeEmail4@notreal.com",
+    "address":"321somewhere"
+  },
+  {
+    "username": "Test5",
+    "email": "fakeEmail5@notreal.com",
+    "address":"987somewhere"
+  },
+  {
+    "username": "Test6",
+    "email": "fakeEmail6@notreal.com",
+    "address":"654somewhere"
+  }
+]
+
+
