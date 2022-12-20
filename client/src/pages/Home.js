@@ -79,8 +79,9 @@ const Home = (props) => {
             </>
           ) : (
             <>
-              <div >
-              
+              <div class="">
+              We Provide Delicious & Customizable Drinks and Snacks For Your Facility At No Cost To You.
+              <img class="" id="imgs" src="https://snacknation.com/wp-content/uploads/2021/09/bars_shadow.png"></img>
                 </div>
             </>
           )} 
