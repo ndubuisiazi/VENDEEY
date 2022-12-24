@@ -3,7 +3,7 @@
 }
 :root{
   font-family: 'Heebo', sans-serif;
-  background-color:#eedede
+  /* background-color:#eedede */
 }
 
 .header{
@@ -124,3 +124,15 @@ border-bottom: 1px solid lightgray;
   align-items: center;
   
 } */
+
+#imgs {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+
+  #imgss {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    }

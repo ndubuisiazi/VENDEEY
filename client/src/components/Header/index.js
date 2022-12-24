@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div >
     <div className='header'>
-    <Link to="/" ><span className='p-2'>Vending Services</span></Link>
+    <Link to="/" ><span className='p-2 font-bold'>Total Vending Soulutions</span></Link>
     <div className='header_search'>
         <input className='header_search_input' type="text"></input>
     </div> 
@@ -48,7 +48,7 @@ const Header = () => {
 
                 <div className='header_option'>
                 <Link to="/Login" ><span className='header_optionLionThree'>Sign In </span></Link>
-                <Link to="/Signup" ><span className='header_optionLionThree'> / Sign Up</span></Link>
+                
                 </div>
                 </div>
             </>

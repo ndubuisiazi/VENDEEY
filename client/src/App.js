@@ -44,7 +44,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <div className="grid items-center container">
+          <div className="Flex-row items-center">
             <Routes>
               <Route 
                 path="/" 
@@ -64,6 +64,7 @@ function App() {
               />
             </Routes>
           </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
