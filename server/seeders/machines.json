@@ -1,0 +1,76 @@
+[
+  {
+    "name": "Evoke Snack 6",
+    "Height": "72” (183 cm)",
+    "Width": "46” (116.8 cm)",
+    "Depth": "35.2” (89.4 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:1125/h:1500/q:mauto/https://www.uselectit.com/wp-content/uploads/evoke-snack-6.png",
+    "type":"Snacks"
+  },
+  {
+    "name": "Evoke Snack 5",
+    "Height": "72” (183 cm)",
+    "Width": "41” (104 cm)",
+    "Depth": "35.2” (89.4 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:1125/h:1500/q:mauto/https://www.uselectit.com/wp-content/uploads/evoke-snack-5.png",
+    "type":"Snacks"
+  },
+  {
+    "name": "Mercato 3000",
+    "Height": "72” (183 cm)",
+    "Width": "29.3” (74.4 cm)",
+    "Depth": "34.75” (88.3 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:1125/h:1500/q:mauto/https://www.uselectit.com/wp-content/uploads/Mercato-3000-sp2Skp-20379-3626.png",
+    "type":"Snacks"
+  },
+  {
+    "name": "Mercato 4000",
+    "Height": "72” (183 cm)",
+    "Width": "35.2” (89.4 cm)",
+    "Depth": "34.75” (88.3 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:1125/h:1500/q:mauto/https://www.uselectit.com/wp-content/uploads/Mercato-4000-sp2SLS-12409-4632.png",
+    "type":"Snacks"
+  },
+  {
+    "name": "Mercato 5000",
+    "Height": "72” (183 cm)",
+    "Width": "41” (104 cm)",
+    "Depth": "34.75” (88.3 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:1125/h:1500/q:mauto/https://www.uselectit.com/wp-content/uploads/Mercato-5000-sp2SLkp-50554-5640.png",
+    "type":"Snacks"
+  },
+  
+
+  {
+    "name": "Evoke Elevator Refrigerated Merchandiser",
+    "Height": "72” (183 cm)",
+    "Width": "41” (104 cm)",
+    "Depth": "38” (97 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:315/h:544/q:mauto/https://www.uselectit.com/wp-content/uploads/Model-3629-EvokeElevator-All-Drinks-7inch-e1617809861427-3-2.jpg",
+    "type":"Drinks"
+  },
+  {
+    "name": "Evoke Cold Beverage 5W Elevator",
+    "Height": "72” (183 cm)",
+    "Width": "41” (104 cm)",
+    "Depth": "38” (97 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:315/h:544/q:mauto/https://www.uselectit.com/wp-content/uploads/Model-3629-EvokeElevator-All-Drinks-7inch-e1617809861427-3-2.jpg",
+    "type":"Drinks"
+  },
+  {
+    "name": "Evoke VT5",
+    "Height": "72” (183 cm)",
+    "Width": "41” (104 cm)",
+    "Depth": "38” (97 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:921/h:1500/q:mauto/https://www.uselectit.com/wp-content/uploads/Model-3625-Evoke-Combo-VT5_7in.png",
+    "type":"Snacks"
+  },
+  {
+    "name": "Evoke VT5",
+    "Height": "72” (183 cm)",
+    "Width": "41” (104 cm)",
+    "Depth": "38” (97 cm)",
+    "img":"https://mlnnx0p1ut8l.i.optimole.com/w:921/h:1500/q:mauto/https://www.uselectit.com/wp-content/uploads/Model-3625-Evoke-Combo-VT5_7in.png",
+    "type":"Drinks"
+  }
+]

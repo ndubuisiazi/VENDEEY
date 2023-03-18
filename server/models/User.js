@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const ordersSchema = require('./Orders');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
@@ -7,6 +8,16 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     trim: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  companyname: {
+    type: String,
+  },
+  phone: {
+    type: String,
   },
   email: {
     type: String,
@@ -19,12 +30,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  orders: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Orders',
-    },
-  ],
+  orders: [ordersSchema]
 });
 
 userSchema.pre('save', async function (next) {

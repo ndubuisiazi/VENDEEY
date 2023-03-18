@@ -1,13 +1,14 @@
 const db = require('../config/connection');
-const { User, Products } = require('../models');
-const userSeeds = require('./userSeeds.json');
+const { User, Products,Machines } = require('../models');
 const productData = require('./productData.json');
+const machineData = require('./machines.json');
 
 db.once('open', async () => {
   try {
     await User.deleteMany({});
+    await Machines.deleteMany({});
     await Products.deleteMany({});
-    await User.create(userSeeds);
+    await Machines.create(machineData);
 
     const products = await Products.insertMany(productData);
     console.log('products seeded!');

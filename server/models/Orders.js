@@ -1,6 +1,7 @@
 
 const { Schema, model, Types } = require('mongoose');
-const itemlistSchema = require('./Itemlist');
+const addressSchema = require('./Address');
+const productSchema = require('./ProductsSchema');
 
 
 
@@ -9,21 +10,33 @@ const orderSchema = new Schema({
   //   type:Number,
   //   required:true
   // },
-  address: {
-    type: String,
-    required: true,
-  },
+  
   createdAt: {
     type: Date,
     default: Date.now,
   },
-  items: [itemlistSchema]
+  machinetype:{
+    type:String,
+  },
+  machineselection:{
+    type:String,
+  },
+  items: [productSchema],
+  address: [addressSchema],
+  servicerequest:{
+    type:String,
+  },
+  
 
-});
-
-const Order = model('Order', orderSchema);
-
-module.exports = Order;
+},
+{
+  toJSON: {
+    getters: true,
+  },
+  id: false,
+}
+);
+module.exports = orderSchema;
 
 
 

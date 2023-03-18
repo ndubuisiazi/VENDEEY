@@ -41,7 +41,7 @@ const Login = (props) => {
   };
 
   return (
-    <div id="auth" class="m-6 w-1/3 bg-grey-lighter min-h-1/2 justify-self-center self-center flex flex-col border border-gray-400 rounded shadow-md">
+    <div id="auth" class="m-6 w-1/3 col-span-5 bg-grey-lighter min-h-1/2 justify-self-center self-center flex flex-col border border-gray-400 rounded shadow-md">
               
                   <form onSubmit={handleFormSubmit} id="login" class=" bg-white px-6 py-8 text-black w-full ">
                       <h1 class="mb-8 text-3xl text-center">Sign In</h1>
@@ -67,9 +67,10 @@ const Login = (props) => {
                          className="btn btn-block btn-primary"
                          style={{ cursor: 'pointer' }}
                          type="submit"
-                          class="w-full inline-block px-7 py-3 bg-black text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-black hover:shadow-lg focus:bg-black focus:shadow-lg focus:outline-none focus:ring-0 active:bg-black active:shadow-lg transition duration-150 ease-in-out">
+                          class="cursor-pointer w-full inline-block px-7 py-3 bg-black text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-black hover:shadow-lg focus:bg-black focus:shadow-lg focus:outline-none focus:ring-0 active:bg-black active:shadow-lg transition duration-150 ease-in-out">
                           Sign In 
                           </button>
+                          <h1 class="mb-8 text-xs mt-6 text-center">Don't have an account? <Link to="/Signup" ><span className='text-blue-600 cursor-pointer'>Sign Up </span></Link></h1>
   
                   </form>
               

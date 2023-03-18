@@ -1,26 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply bg-gray-800 hover:bg-gray-700 text-gray-100 font-medium px-7 py-1.5 rounded;
+}
 *{
   margin: 0;
 }
 :root{
   font-family: 'Heebo', sans-serif;
-  /* background-color:#eedede */
+  /* background-color:#eedede; */
+  /* background-color:#ece3e3; */
+  height: 100%;
+  
 }
 
-.header{
-  height: 45px;
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 60
+}
+
+#home,#HIW{
+/* background-color:#388087; */
+background-color:#f6f6f2;
+}
+.footer{
+  height: 20px;
   display: flex;
   align-items: center;
   background-color: black;
+  position: sticky;
+  bottom:0;
+  z-index: 100;
+  color:white;
+  position: absolute;
+  font-family: 'Heebo', sans-serif;
+
+}
+#header{
+  height: 55px;
+  display: flex;
+  align-items: center;
+  
   position: sticky;
   top:0;
   z-index: 100;
   color:white;
 }
-.subHeader{
-  height: 25px;
+#subHeader{
+  height: 55px;
   display: flex;
   align-items: center;
-  background-color: white;
+  
   position: sticky;
   top:0;
   z-index: 100;
@@ -69,7 +104,7 @@
 #checkout{
   display:flex;
   padding: 20px;
-  background-color: white;
+  
   height: max-content;
   flex-direction: row;
 }
@@ -91,7 +126,7 @@ border-bottom: 1px solid lightgray;
   width: 300px;
   height: 100px;
   padding: 20px;
-  background-color: white;
+  
   /* border: solid 1px #dddddd; */
   border-radius: 3px;
 }
@@ -136,3 +171,75 @@ border-bottom: 1px solid lightgray;
     margin-right: auto;
     width: 80%;
     }
+
+
+    @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #4ade80;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #4ade80;
+  animation: fill 0.4s ease-in-out 0.4s forwards,
+    scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #4ade80;
+  }
+}

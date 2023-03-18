@@ -1,64 +1,134 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { CREATE_ORDER } from '../../utils/mutations';
+import { CgProfile, CgLogOut } from 'react-icons/cg';
+import { HiOutlineHome } from 'react-icons/hi2';
+import { BsPersonFill, } from 'react-icons/bs';
+
 
 import Auth from '../../utils/auth';
 
 const Header = () => {
-  const logout = (event) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const isLoggedIn = Auth.loggedIn();
+  let navigate = useNavigate();
+
+  const [createOrder, { error }] = useMutation(CREATE_ORDER);
+
+  const NewOrder = async (techNum) => {
+    console.log("techNum")
+	console.log(techNum)
+    
+    try {
+		const { data } = await createOrder({
+        variables: { "id":techNum },
+      });
+      console.log()
+	  navigate(`/MachineType/${data.createOrder.orders.slice(-1)[0]._id}`);
+    }
+     
+    catch (err) {
+      console.error(err);
+    }
+
+	console.log(Auth.getProfile().data)
+  };
+
+  const handleSelection = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const handleLogout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
-    <div >
-    <div className='header'>
-    <Link to="/" ><span className='p-2 font-bold'>Total Vending Soulutions</span></Link>
-    <div className='header_search'>
-        <input className='header_search_input' type="text"></input>
-    </div> 
-    {Auth.loggedIn() ? (
-            <>
-                <div className='header_nav'>
-                <div className='header_option'>
-                <span className='header_optionLionOne'>Hello {Auth.getProfile().data.username}!</span>
-                </div>
-                <div className='header_optionSecond'>
-                <Link to="/Checkout" >
-                <span id='header_optionLionTwo' class="material-symbols-rounded">shopping_cart</span><span id='header_basketCount'>0</span>
+    <div>
+      <header className="h-16 bg-black shadow flex items-center px-4" style={{ background: "#388087" }}>
+        <h2 className="text-xl font-medium flex-grow">
+          <Link to="/"><span className='ml-6 grow text-white font-bold'>VENDEE</span></Link>
+        </h2>
+        <div id='dropdown' className="text-left">
+          <div className='text-white text-xl flex items-center mr-16'>
+          {isLoggedIn ? (
+          <div className='flex flex-row'>
+            <h2 className="mr-6 text-xl dark:text-gray-300 font-extrabold capitalize">
+              Hello {Auth.getProfile().data.username}
+            </h2>
+            <button
+            className="mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-xs rounded-full"
+            style={{ cursor: 'pointer' }}
+            type="submit"
+            onClick={() => NewOrder(Auth.getProfile().data._id)}
+            >Add Service
+          </button>
+            </div>
+        ) : null}
+            < BsPersonFill className='mr-2'/>
+            <span className='cursor-pointer' onMouseOver={() => setIsDropdownOpen(!isDropdownOpen)} >My Account </span>
+            
+          </div>
+
+          {isDropdownOpen && (
+            <div  onMouseLeave={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+              tabIndex="-1"
+            >
+            {isLoggedIn ? (
+              <div className="py-1" role="none">
+                <Link
+                  to="/profile"
+                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-black hover:text-white"
+                  role="menuitem"
+                  tabIndex="-1"
+                  onClick={handleSelection}
+                >
+                  Profile
                 </Link>
-
-                </div>
-
-                <div className='header_option'>
-                <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
-                </div>
-                </div>
-            </>
-          ) : (
-            <>
-              <div className='header_nav'>
-                <div className='header_option'>
-                <span className='header_optionLionOne'></span>
-                </div>
-                <div className='header_optionSecond'>
+                <Link
+                  to="/"
+                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-black hover:text-white"
+                  role="menuitem"
+                  tabIndex="-1"
+                  onClick={handleSelection}
+                >
+                  Dashboard
+                </Link>
                 
-
-                </div>
-
-                <div className='header_option'>
-                <Link to="/Login" ><span className='header_optionLionThree'>Sign In </span></Link>
+                <button
+                  onClick={(event) => {
+                    handleLogout(event);
+                    handleSelection();
+                  }}
+                  type="button"
+                  className="text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-black hover:text-white"
+                  role="menuitem"
+                  tabIndex="-1"
+                >
+                  Sign out
+                </button>
                 
-                </div>
-                </div>
-            </>
-          )} 
-</div>
-<div className='subHeader'>
+              </div>):(
 
-</div>
-
-</div>
+              <Link
+                  to="/Login"
+                  className="text-gray-700 block px-4 py-2 text-sm hover:rounded-md hover:text-black"
+                  role="menuitem"
+                  tabIndex="-1"
+                  onClick={handleSelection}
+                >
+                  Log In
+                </Link>)}
+            </div>
+          )}
+        </div>
+      </header>
+    </div>
   );
 };
 

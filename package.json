@@ -6,8 +6,7 @@
   "engines": {
     "node": "16.16.0"
   },
-  
- "scripts": {
+  "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -20,7 +19,14 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.16",
     "@stripe/react-stripe-js": "^1.16.1",
-    "@stripe/stripe-js": "^1.46.0"
+    "@stripe/stripe-js": "^1.46.0",
+    "icons": "^1.0.0",
+    "nodemailer": "2.7.2",
+    "react": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "tls": "^0.0.1"
   }
 }
