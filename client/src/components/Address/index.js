@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADDADDRESS } from '../../utils/mutations';
-import nodemailer from 'nodemailer';
 
 
 const AddressForm = () => {
