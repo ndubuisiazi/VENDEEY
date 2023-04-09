@@ -13,7 +13,7 @@ scalar Date
     email: String
     phone: String
     password: String
-    orders: [Orders]!
+    orders: [Order]
   }
   input UpdateUserInput {
     username: String
@@ -25,12 +25,12 @@ scalar Date
   
   type Products {
     _id: ID
-    productId:Int!
-    productName:String!
-    category:String!
-    quantity:Int!
-    price:Int!
-    img:String!
+    productId:Int
+    productName:String
+    category:String
+    quantity:Int
+    price:Int
+    img:String
   }
 
   type MachineType {
@@ -42,14 +42,15 @@ scalar Date
     type:String
   }
 
-  type Orders {
+  type Order {
     _id: ID!
-    items:[Products]
+    items: [Products]
     createdAt: String
-    machineselection:String
-    machinetype:String
+    machinename: String
+    machineselection: String
+    machinetype: String
     address: [Address]
-    servicerequest:String
+    servicerequest: String
   }
 
   type Address {
@@ -69,7 +70,7 @@ scalar Date
   type Query {
     users(_id:ID!): [User]
     products(category:String!):[Products]
-    orders(_id:ID!):[Orders]
+    orders(userId: ID!, orderId: ID!): Order
     user(_id:ID!): User
     machinetype(type:String!):[MachineType]
   }
@@ -93,12 +94,14 @@ scalar Date
     addMachine(
       _id:ID!, 
       machinetype: String!
+      
     ): User
     addItems(
       _id:ID!,
       productId:Int!, 
       productName:String!,
-      category:String!
+      category:String!,
+      img:String
     ): User
     addAddress(
       _id:ID!,
@@ -110,11 +113,16 @@ scalar Date
     ): User
     addMachineSelection(
       _id:ID!, 
-      machineselection:String!
+      machineselection:String!,
+      machinename: String
     ): User
     addServiceRequest(
       _id:ID!, 
       servicerequest:String!
+    ): User
+    removeItem(
+      _id: ID!,
+      productId: Int!
     ): User
   }
 `;

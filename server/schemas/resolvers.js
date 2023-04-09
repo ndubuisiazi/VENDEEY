@@ -18,10 +18,28 @@ const resolvers = {
         'category': category 
       });
     },
-    orders: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Orders.find(params);
+    orders: async (parent, { userId, orderId }) => {
+      try {
+        const result = await User.findOne(
+          { _id: userId, 'orders._id': orderId },
+          { 'orders.$': 1, _id: 0 }
+        );
+    
+        if (result && result.orders && result.orders.length > 0) {
+          console.log('Order found:', result.orders[0]);
+          return result.orders[0];
+        } else {
+          console.log('No order found with the given _id for the specified user');
+          return null;
+        }
+      } catch (err) {
+        console.error('Error occurred while finding the order:', err);
+        return null;
+      }
     },
+    
+    
+    
     machinetype: async (parent, { type }) => {
       const params = type ? { type } : {};
       return Machines.find(params);
@@ -61,7 +79,7 @@ const resolvers = {
     },
 
     
-    addMachineSelection: async (parent, {_id,machineselection}) => {
+    addMachineSelection: async (parent, {_id,machineselection, machinename}) => {
       
       const newmachine = await User.findOneAndUpdate(
         
@@ -69,7 +87,8 @@ const resolvers = {
          },
         { $set:
           {
-            "orders.$.machineselection": machineselection
+            "orders.$.machineselection": machineselection,
+            "orders.$.machinename": machinename
           }
        },
       );;
@@ -104,7 +123,7 @@ const resolvers = {
       );;
       return newServiceRequest;
     },
-    addItems: async (parent, {_id, productId, productName,category}) => {
+    addItems: async (parent, {_id, productId, productName,category,img}) => {
       
       const newItem = await User.findOneAndUpdate(
         
@@ -114,12 +133,21 @@ const resolvers = {
           "orders.$.items":[{
             "category":category,
             "productName":productName,
-            "productId":productId
+            "productId":productId,
+            "img":img
           }]
         }
       },
       );;
       return newItem;
+    },
+    removeItem: async (parent, { _id, productId }) => {
+      const updatedOrder = await User.findOneAndUpdate(
+        { "orders._id": _id },
+        { $pull: { "orders.$.items": { productId: productId } } },
+        { new: true }
+      );
+      return updatedOrder;
     },
     addAddress: async (parent, {_id, streetaddress, city,state, zip, country, phone}) => {
       

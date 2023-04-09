@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/server.js",
   "engines": {
-    "node": "12.22.9"
+    "node": "16.16.0"
   },
   "scripts": {
     "start": "node server/server.js",
@@ -21,13 +21,14 @@
   "dependencies": {
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
-    "babel-jest": "^26.6.0",
+    "@stripe/react-stripe-js": "^1.16.1",
+    "@stripe/stripe-js": "^1.46.0",
+    "bcrypt": "^5.1.0",
+    "env": "^0.0.2",
     "icons": "^1.0.0",
     "nodemailer": "2.7.2",
     "react": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-scripts": "3.4.1",
-    "react-transition-group": "^4.3.0",
     "tls": "^0.0.1"
   }
 }
