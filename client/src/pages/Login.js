@@ -41,42 +41,65 @@ const Login = (props) => {
   };
 
   return (
-    <div id="auth" class="m-6 w-1/3 col-span-5 bg-grey-lighter min-h-1/2 justify-self-center self-center flex flex-col border border-gray-400 rounded shadow-md">
-              
-                  <form onSubmit={handleFormSubmit} id="login" class=" bg-white px-6 py-8 text-black w-full ">
-                      <h1 class="mb-8 text-3xl text-center">Sign In</h1>
-                      <input
-                          class="mb-4 form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                          placeholder="Your email"
-                          name="email"
-                          type="email"
-                          value={formState.email}
-                          onChange={handleChange}
-                          />
-  
-                      <input
-                          class="mb-4 form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                          placeholder="******"
-                          name="password"
-                          type="password"
-                          value={formState.password}
-                          onChange={handleChange}
-                          />
-                          
-                        <button
-                         className="btn btn-block btn-primary"
-                         style={{ cursor: 'pointer' }}
-                         type="submit"
-                          class="cursor-pointer w-full inline-block px-7 py-3 bg-black text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-black hover:shadow-lg focus:bg-black focus:shadow-lg focus:outline-none focus:ring-0 active:bg-black active:shadow-lg transition duration-150 ease-in-out">
-                          Sign In 
-                          </button>
-                          <h1 class="mb-8 text-xs mt-6 text-center">Don't have an account? <Link to="/Signup" ><span className='text-blue-600 cursor-pointer'>Sign Up </span></Link></h1>
-  
-                  </form>
-              
-             
-  
-          </div>
+    
+    <div className="w-full h-full flex flex-col items-center justify-center ">
+      <div className="text-center">
+          {/* VENDEE Logo */}
+          {/* You can replace the SVG code with the VENDEE logo SVG provided in the original HTML */}
+          
+          <h3 className="text-6xl lg:text-lg font-bold p-6 lg:p-4">Log In</h3>
+        </div>
+        <div className=" flex justify-center w-full h-full p-20 lg:p-0 ">
+      <div className="w-full lg:w-1/3 h-3/4 p-20 rounded-lg bg-white border border-gray-200 rounded shadow-md">
+        
+        <form onSubmit={handleFormSubmit} id="login">
+          <input
+            className="lg:text-sm text-4xl w-full p-2 mb-20 lg:mb-2 border border-gray-300 rounded h-32 lg:h-10"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+            placeholder="Email"
+          />
+          <input
+            type="password"
+            className="lg:text-sm text-4xl w-full p-2 mb-20 lg:mb-2 border border-gray-300 rounded h-32 lg:h-10"
+            name="password"
+            value={formState.password}
+            onChange={handleChange}
+            placeholder="Password"
+          />
+          <button className="lg:text-sm text-4xl h-32 lg:h-10 btn btn-block btn-primary w-full p-2 bg-black text-white font-semibold rounded mb-20 lg:mb-2 rounded-lg"
+          type="submit">
+            Log In
+          </button>
+        </form>
+        <div className="text-center mb-20 lg:mb-2">
+          <a
+            className="lg:text-sm text-2xl text-gray-600 mb-20 lg:mb-2"
+          >
+            Forgot your password?
+          </a>
+        </div>
+        <div className="text-center mt-4">
+          <p className="lg:text-sm text-2xl mb-20 lg:mb-2">New to VENDEE?</p>
+          <a
+            href="https://offer.VENDEE.com/?skipLandingPage=true&amp;utm_source=WebOrganic&amp;utm_medium=VENDEE.com&amp;utm_content=na&amp;utm_campaign=na&amp;utm_banner=na"
+            className="w-full lg:text-xs text-2xl p-2 border border-black text-black font-semibold rounded"
+          >
+            <Link to="/Signup" >Create An Account Here</Link>
+          </a>
+        </div>
+      </div>
+      
+      </div>
+      <div className="text-center">
+          {/* VENDEE Logo */}
+          {/* You can replace the SVG code with the VENDEE logo SVG provided in the original HTML */}
+          <h1 className="text-4xl font-bold p-20 lg:p-2"></h1>
+          <h3 className="text-4xl font-bold p-20 lg:p-2"></h3>
+        </div>
+    </div>
   );
 };
 

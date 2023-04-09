@@ -103,7 +103,7 @@ function App() {
           {navAndRoutes}
           </div>
            : <>
-           <div className="flex w-full justify-center" >
+           <div className="flex h-full w-full justify-center" >
            {RoutesOnly}
            </div>
            </>}

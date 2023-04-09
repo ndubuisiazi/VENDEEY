@@ -39,19 +39,19 @@ const Signup = () => {
   };
 
   return (
-    <div id="auth" className="m-6 w-1/3 bg-grey-lighter min-h-1/2 col-span-5 justify-self-center self-center flex flex-col border border-gray-400 rounded shadow-md">
-      <form onSubmit={handleFormSubmit} className="bg-white px-6 py-8 text-black w-full">
-        <h1 className="mb-8 text-3xl text-center">Sign Up</h1>
+    <div id="auth" className="m-6 h-full w-full bg-grey-lighter items-center justify-self-center self-center flex flex-col">
+    <form onSubmit={handleFormSubmit} className="w-full lg:w-1/3 h-1/2 lg:h-1/3 border border-gray-400 rounded shadow-md bg-white px-6 py-8 text-black mt-10 ">
+        <h1 className="mb-20 lg:mb-2 lg:text-lg text-4xl text-center">Sign Up</h1>
         <input 
           type="text"
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mb-20 lg:mb-2 lg:text-lg text-4xl"
           placeholder="Username"
           name="username"
           value={formState.username}
           onChange={handleChange}
         />
         <input 
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mb-20 lg:mb-2 lg:text-lg text-4xl"
           placeholder="Email"
           name="email"
           type="email"
@@ -59,7 +59,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         <input 
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mb-20 lg:mb-2 lg:text-lg text-4xl"
           placeholder="Company Name"
           name="companyname"
           type="text"
@@ -67,7 +67,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         <input 
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mb-20 lg:mb-2 lg:text-lg text-4xl"
           placeholder="Phone #"
           name="phone"
           type="text"
@@ -75,7 +75,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         <input 
-          className="block border border-grey-light w-full p-3 rounded mb-4"
+          className="block border border-grey-light w-full p-3 rounded mb-20 lg:mb-2 lg:text-lg text-4xl"
           placeholder="********"
           name="password"
           type="password"
@@ -83,7 +83,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         <button
-          className="w-full inline-block px-7 py-3 bg-black text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-black hover:shadow-lg focus:bg-black focus:shadow-lg focus:outline-none focus:ring-0 active:bg-black active:shadow-lg transition duration-150 ease-in-out"
+          className="w-full inline-block px-7 py-3 bg-black text-white font-medium lg:text-lg text-4xl leading-snug uppercase rounded shadow-md hover:bg-black hover:shadow-lg focus:bg-black focus:shadow-lg focus:outline-none focus:ring-0 active:bg-black active:shadow-lg transition duration-150 ease-in-out"
           style={{ cursor: 'pointer' }}
           type="submit"
         >

@@ -16,10 +16,7 @@ const Header = () => {
 
   const [createOrder, { error }] = useMutation(CREATE_ORDER);
 
-  const NewOrder = async (techNum) => {
-    console.log("techNum")
-	console.log(techNum)
-    
+  const NewOrder = async (techNum) => {   
     try {
 		const { data } = await createOrder({
         variables: { "id":techNum },
@@ -31,13 +28,12 @@ const Header = () => {
     catch (err) {
       console.error(err);
     }
-
-	console.log(Auth.getProfile().data)
   };
+  function DropdownItem(props){
+    return( <div>test</div>)
+  }
 
-  const handleSelection = () => {
-    setIsDropdownOpen(false);
-  };
+  const handleSelection = () => { setIsDropdownOpen(false);};
 
   const handleLogout = (event) => {
     event.preventDefault();
@@ -45,91 +41,21 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <header className="h-16 bg-black shadow flex items-center px-4" style={{ background: "#388087" }}>
-        <h2 className="text-xl font-medium flex-grow">
-          <Link to="/"><span className='ml-6 grow text-white font-bold'>VENDEE</span></Link>
-        </h2>
-        <div id='dropdown' className="text-left">
-          <div className='text-white text-xl flex items-center mr-16'>
-          {isLoggedIn ? (
-          <div className='flex flex-row'>
-            <h2 className="mr-6 text-xl dark:text-gray-300 font-extrabold capitalize">
-              Hello {Auth.getProfile().data.username}
-            </h2>
-            <button
-            className="mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-xs rounded-full"
-            style={{ cursor: 'pointer' }}
-            type="submit"
-            onClick={() => NewOrder(Auth.getProfile().data._id)}
-            >Add Service
-          </button>
-            </div>
-        ) : null}
-            < BsPersonFill className='mr-2'/>
-            <span className='cursor-pointer' onMouseOver={() => setIsDropdownOpen(!isDropdownOpen)} >My Account </span>
-            
-          </div>
+    <div className='menu-container'>
+      <div className='menu-trigger'>
+      < BsPersonFill id='menu_img'/>
+      </div>
+      <div id='dropdown-menu'>
+        <h3>test</h3>
+        <ul>
+          <DropdownItem/>
+        </ul>
 
-          {isDropdownOpen && (
-            <div  onMouseLeave={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="menu-button"
-              tabIndex="-1"
-            >
-            {isLoggedIn ? (
-              <div className="py-1" role="none">
-                <Link
-                  to="/profile"
-                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-black hover:text-white"
-                  role="menuitem"
-                  tabIndex="-1"
-                  onClick={handleSelection}
-                >
-                  Profile
-                </Link>
-                <Link
-                  to="/"
-                  className="text-gray-700 block px-4 py-2 text-sm hover:bg-black hover:text-white"
-                  role="menuitem"
-                  tabIndex="-1"
-                  onClick={handleSelection}
-                >
-                  Dashboard
-                </Link>
-                
-                <button
-                  onClick={(event) => {
-                    handleLogout(event);
-                    handleSelection();
-                  }}
-                  type="button"
-                  className="text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-black hover:text-white"
-                  role="menuitem"
-                  tabIndex="-1"
-                >
-                  Sign out
-                </button>
-                
-              </div>):(
-
-              <Link
-                  to="/Login"
-                  className="text-gray-700 block px-4 py-2 text-sm hover:rounded-md hover:text-black"
-                  role="menuitem"
-                  tabIndex="-1"
-                  onClick={handleSelection}
-                >
-                  Log In
-                </Link>)}
-            </div>
-          )}
-        </div>
-      </header>
+      </div>
+      
     </div>
   );
 };
+
 
 export default Header;
